@@ -1,0 +1,33 @@
+### Teste 1: Buscar todos os produtos
+GET http://localhost:3000/api/products
+
+###
+### Teste 2: Criar um novo pedido (POST)
+POST http://localhost:3000/api/orders
+Content-Type: application/json
+
+{
+    "customer_id": 3,
+    "delivery_address": "Rua Teste de Pedido, 789",
+    "items": [
+      { "product_id": 1, "quantity": 1 },
+      { "product_id": 2, "quantity": 2 }
+    ]
+}
+
+###
+### Teste 3: Buscar todos os pedidos PENDENTES
+GET http://localhost:3000/api/orders/pending
+
+###
+### Teste 4: Atribuir Pedido 4 ao Entregador 2 (João)
+PATCH http://localhost:3000/api/orders/5/assign
+Content-Type: application/json
+
+{
+    "driver_id": 2
+}
+
+###
+### Teste 5: Entregador finaliza o Pedido 5
+PATCH http://localhost:3000/api/orders/5/complete
